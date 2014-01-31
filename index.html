@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Web Audio</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>Web Audio</h1>
+    <p class="footer">
+      Paul Adenot,
+      <a href="http://twitter.com/padenot">@padenot</a> &amp;&amp;
+      <a href="mailto:padenot@mozilla.com">padenot@mozilla.com</a>
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>
+      This slide deck is using the shower system - roll over the previews to
+      see the notes and click any slide to go into presentation mode. Then use
+      keys to navigate. <button onclick="goFullScreen()">Go
+      fullscreen</button>
+    </p>
+    <p class="abstract">
+    <strong>Abstract: </strong>
+    Now that <code>&lt;audio&gt;</code> starts to get traction on the Web, let's talk about the
+    new API authors can use to make noise in their web pages.
+    We will briefly cover the API, and then show what is possible to achieve with it
+    (and what is, at the moment, hard or impossible) and how it fits in the Web
+    platform. We finish with possible plans for future of the API.
+    </p>
+  </aside>
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Web Audio</h2>
+      </header>
+      <img src="pictures/firefox-oct-2013.png"
+           class="middle" height="400"
+           alt="High-five at the Mozilla Festival!">
+      <small class="byline">
+        Paul Adenot, FOSDEM, Brussels, 2013-02-01
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <div id="callout" class="slide"><div>
+    <section>
+      <header>
+        <h2>A year ago, same room, same guy...</h2>
+      </header>
+      <iframe style="width: 100%;height: 80%;" src="http://padenot.github.io/FOSDEM-13/?full#webaudio"></iframe>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="journey" class="slide"><div>
+    <section>
+      <header>
+        <h2>Gecko's Web Audio Journey</h2>
+      </header>
+        <pre style="white-space: pre; font-size: 0.6em; font-family:
+        monospace;margin:0 ">
+$ hg log -r : -l 1 content/media/webaudio
+changeset:   104061:ee9b17600025
+user:        Ehsan Akhgari &lt;ehsan@mozilla.com&gt;
+date:        Fri Aug 31 16:59:37 2012 -0400
+summary:     Bug 775302 - Stub out the implementation of mozAudioContext; r=bzbarsky,khuey
+        </pre>
+        <p style="margin:0">
+          816 commits so far, feature complete implementation, landed in Firefox 25 (2013-10-29).
+        </p>
+        <p style="margin:0; text-align: center; font-size: small;">
+          Commit time repartition:
+        </p>
+        <img alt="commits time repartition" src="pictures/commit.svg" width="100%">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="onesentence" class="slide"><div>
+    <section>
+      <header>
+        <h2>What is Web Audio, in one sentence</h2>
+      </header>
+      <p>
+        What does the spec tell us?
+      </p>
+      <blockquote style="font-size:1em;">
+        [...] A high-level JavaScript API for processing
+        and synthesizing audio in web applications. The primary paradigm is of
+        an audio routing graph, where a number of AudioNode objects are
+        connected together to define the overall audio rendering.
+      </blockquote>
+      <a class="right" href="http://webaudio.github.io/web-audio-api/index.html#abstact">
+        http://webaudio.github.io/web-audio-api/index.html#abstact</a>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="example-code" class="slide"><div>
+    <section>
+      <header>
+        <h2>What is Web Audio, in one picture (and some code)</h2>
+      </header>
+      <img src="pictures/webaudio-graph.svg" class="left" alt="Web Audio Graph" style="width: 40%; padding-right: 0;">
+      <pre style="width: 50%; font-size: small; float: right;" class="right">
+          <code> var ac = new AudioContext(); </code>
+          <code> ac.decodeAudioData(ogg_arraybuffer, function(audiobuffer) { </code>
+          <code>   var source = ac.createBufferSource();</code>
+          <code>   source.buffer = audiobuffer; </code>
+          <code>   var d = ac.createDelay()</code>
+          <code>   var osc = ac.createOscillator();</code>
+          <code>   osc.type = "square";</code>
+          <code>   osc.frequency.value = 100; // Hz</code>
+          <code>   var g = ac.createGain();</code>
+          <code>   source.connect(d);</code>
+          <code>   source.connect(ac.destination);</code>
+          <code>   d.connect(ac.destination);</code>
+          <code>   g.connect(d);</code>
+          <code>   d.connect(g);</code>
+          <code>   osc.connect(g);</code>
+          <code>});</code>
+      </pre>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="overview" class="slide"><div>
+    <section>
+      <header>
+        <h2>Feature Overview</h2>
+      </header>
+      <ul>
+        <li><em>Precise</em> timing of sound clips </li>
+        <li> Arbitrary audio routing/mixing </li>
+        <li> Effect transition, scheduling </li>
+        <li> Audio decoding to <code>ArrayBuffers</code> </li>
+        <li> Ability to analyse audio </li>
+        <li> Integration with the web platform </li>
+        <li> Low-latency playback </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="use-cases" class="slide"><div>
+    <section>
+      <header>
+        <h2> Use cases </h2>
+      </header>
+      <ul>
+        <li> Games </li>
+        <li> Music visualization </li>
+        <li> Application feedback </li>
+        <li> Musical applications </li>
+        <li> (Ideally) Anything that should make noises </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="source-nodes" class="slide"><div>
+    <section>
+      <header>
+        <h2>Source Nodes</h2>
+      </header>
+      Those nodes <em>output</em> sound, to be processed by other nodes.
+      <ul>
+        <li> <code>MediaStreamAudioSourceNode</code>, from WebRTC, <code>getUserMedia</code>, etc.</li>
+        <li><code>AudioBufferSourceNode</code> to play a raw PCM audio buffer</li>
+        <li><code>OscillatorNode</code> to play predetermined waveforms </li>
+        <li><code>ScriptProcessorNode</code> (with no input) to generate arbitrary waveforms using JavaScript</li>
+        <li><code>MediaElementAudioSourceNode</code> to pipe the audio from <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> in Web Audio</li>
+      </ul>
+
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="processing-nodes" class="slide"><div>
+    <section>
+      <header>
+        <h2>Processing Nodes</h2>
+      </header>
+      Take an input, tweaks it somehow, and outputs it.
+        <ul>
+          <li><code>GainNode</code>: Change the volume</li>
+          <li><code>DelayNode</code>: Delays the input, in time</li>
+          <li><code>ScriptProcessorNode</code> (with both input and output connected): arbitrary processing</li>
+          <li><code>PannerNode</code>: Position a source and a listener in 3D and get the sound <em>panned</em> accordingly</li>
+        </ul>
+
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="processing-nodes-moar" class="slide"><div>
+    <section>
+      <header>
+        <h2>Processing Nodes (moar)</h2>
+      </header>
+        <ul>
+          <li><code>Channel{Splitter,Merger}Node</code>: Merge or Split multi-channel audio</li>
+          <li><code>ConvolverNode</code>: Perform one-dimensional convolution (e.g. church-like reverb)</li>
+          <li><code>WaveShaperNode</code>: Non-linear wave shaping (e.g. guitar distortion) </li>
+          <li><code>BiquadFilter</code>: low-pass, high-pass, etc. (e.g.  graphical equalizer)</li>
+          <li><code>DynamicsCompressorNode</code>: harmonizes audio levels</li>
+        </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="output-nodes" class="slide"><div>
+    <section>
+      <header>
+        <h2>Output Nodes</h2>
+      </header>
+        <ul>
+          <li><code>MediaStreamAudioDestinationNode</code>: Outputs to a
+          <code>MediaStream</code>(send to a <code>PeerConnection</code>, a
+          <code>MediaRecorder</code>)</li>
+          <li><code>AudioDestinationNode</code>: Outputs to speakers</li>
+          <li><code>ScriptProcessorNode</code>: arbitrary processing on input audio</li>
+          <li><code>AnalyserNode</code>: Get time-domain or frequency-domain
+          audio data, in <code>ArrayBuffer</code>s</li>
+        </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="demos" class="slide"><div>
+    <section>
+      <header>
+        <h2>Demos</h2>
+      </header>
+      <ul>
+        <li><a href="demos/WebAudio">Web Audio Playground</a> (<a href="https://github.com/cwilso/WebAudio">on GitHub</a>)
+        <li><a href="demos/warwar">Warwar</a> (unreleased)
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="moar-work" class="slide"><div>
+    <section>
+      <header>
+        <h2>But there is still more work to be done !</h2>
+      </header>
+      <ul>
+        <li>We need to get people to support unprefixed
+        <code>AudioContext</code> and the new function names (We have a <a
+          href="https://developer.mozilla.org/en-US/docs/Web_Audio_API/Porting_webkitAudioContext_code_to_standards_based_AudioContext">wiki
+          page</a> to explain the process).</li>
+        <li> A bunch of bugs to fix in Gecko, some bugs to fix in Webkit/Blink</li>
+        <li> A massive amount of stuff to fix in the <a
+          href="http://webaudio.github.io/web-audio-api">spec</a> </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="possible-direction" class="slide"><div>
+    <section>
+      <header>
+        <h2> Possible direction of the API </h2>
+      </header>
+      <ul>
+        <li> <code>AudioContext</code> in workers, so <code>ScriptProcessorNode</code> can actually work properly. </li>
+        <li> Promises for all the asynchronous operations. </li>
+        <li> Who knows ? </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="questions" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2> Questions ?</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+      <img src="pictures/w3-audio-logo.png" width="30%" class="right" alt="W3C AudioWG Logo">
+      <img src="pictures/firefox-oct-2013.png" width="40%" class="right" alt="Firefox Logo">
+      <ul class="nobull">
+        <li><strong>Paul Adenot</strong></li>
+        <li>Web Audio API specification editor, Gecko developer</li>
+        <li><a href="mailto=padenot@mozilla.com">padenot@mozilla.com</a></li>
+        <li><a href="http://twitter.com/padenot">@padenot</a></li>
+        <li><strong>Slides</strong>: <a
+          href="http://padenot.github.io/FOSDEM-14">http://padenot.github.io/FOSDEM-14</a></li>
+      </ul>
+
+    <footer class="notes">
+    </footer>
+
+    </section>
+  </div></div>
+
+
+
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>

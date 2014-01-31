@@ -1,0 +1,27 @@
+<script>
+var context;
+function startAudioCheck(stream) {
+  console.log("allo");
+  context = new AudioContext();
+  var source = context.createMediaStreamSource(stream);
+  var analyser = context.createScriptProcessor(2048, 1, 1);
+  source.connect(analyser);
+  source.connect(context.destination);
+
+  analyser.onaudioprocess = function(e)  {
+    var array = e.inputBuffer.getChannelData(0);
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] != 0) {
+        alert(array[i]);
+      }
+    }
+  }
+}
+
+
+var config = { audio: true, video: true };
+navigator.mozGetUserMedia(config, function(stream) {
+    var finishAudio = startAudioCheck(stream);
+    finishAudio();
+}, console.log.bind(console, 'error'));
+</script>
