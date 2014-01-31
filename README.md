@@ -6,6 +6,10 @@ It's the slide from my talk at FOSDEM 2014 in the Mozilla DevRoom.
 
 It's not mine, and it's not released.
 
+# Why is the web audio playground not available ?
+
+Just go there: <http://webaudioplayground.appspot.com/>
+
 # Where are the images from?
 
 All the images have been made in Inkscape for this presentation, except from the
