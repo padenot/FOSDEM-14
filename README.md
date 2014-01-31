@@ -1,18 +1,26 @@
-Mozilla presentation templates
-==============================
+# What is this?
 
-This is the repository with Mozilla styled presentation templates in PPT, Keynote and HTML format. 
+It's the slide from my talk at FOSDEM 2014 in the Mozilla DevRoom.
 
-There is a screencast showing how to use the Mozilla Evangelism Reps HTML5 slidedeck on YouTube: https://www.youtube.com/watch?v=M_9hf9joTcQ
+# Why is Warwar not available?
 
-Changes in this version:
+It's not mine, and it's not released.
 
-* Firefox OS pick and mix overview deck (firefox-os-pick-and-mix.html)
-* Fullscreen button (as requested by Stormy Peters)
-* Overall cleanup of the CSS (different list styles, live CSS code)
-* Pressing "N" in fullscreen mode toggles note display
-* In list mode, each slide has a "x" button to turn it on and off. This does not persist though, so when you reload your slides, it will make them all active again (TODO I guess)
+# Where are the images from?
 
-Next steps: 
+All the images have been made in Inkscape for this presentation, except from the
+Audio WG logo, and the Firefox logo.
 
-* Persist Toggle slides feature
+# What is the slidedeck?
+
+<https://github.com/codepo8/mozilla-presentation-templates>, which is afaik a
+Mozilla template for another slide deck system.
+
+# Can I read this online ?
+
+Yup, <http://padenot.github.com/FOSDEM-14>.
+
+#What is the license
+
+CC0 (for the images and text I made).
+
