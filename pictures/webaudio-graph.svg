@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="298.0625"
-   height="216.07649"
+   width="304.2117"
+   height="222.22575"
    id="svg5445"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -20,15 +20,16 @@
     <marker
        inkscape:stockid="Arrow1Mstart"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="Arrow1Mstart"
        style="overflow:visible">
       <path
          id="path6576"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         transform="scale(0.4) translate(10,0)" />
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="Arrow1Mend"
@@ -100,6 +101,122 @@
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <filter
+       inkscape:collect="always"
+       id="filter6022"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6024" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6026"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6028" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6030"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6032" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6034"
+       x="-0.30728757"
+       width="1.6145751"
+       y="-0.019825006"
+       height="1.03965"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6036" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6038"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6040" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6042"
+       x="-0.037432011"
+       width="1.074864"
+       y="-0.10217376"
+       height="1.2043475"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6044" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6046"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6048" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6050"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6052" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6054"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6056" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6058"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6060" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6062"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6064" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6066"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2803649"
+         id="feGaussianBlur6068" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -108,9 +225,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="145.43676"
-     inkscape:cy="94.326439"
+     inkscape:zoom="1.4"
+     inkscape:cx="225.69161"
+     inkscape:cy="172.53303"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -118,10 +235,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1200"
-     inkscape:window-height="1920"
+     inkscape:window-width="1366"
+     inkscape:window-height="712"
      inkscape:window-x="0"
-     inkscape:window-y="-28"
+     inkscape:window-y="27"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -130,8 +247,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-69px"
-       originy="-1538.8214px" />
+       originx="-67.927124px"
+       originy="-1533.7578px" />
   </sodipodi:namedview>
   <metadata
      id="metadata5450">
@@ -148,7 +265,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-29.5,-66.875)">
+     transform="translate(-28.427124,-65.789307)">
     <g
        id="g7017">
       <rect
@@ -309,5 +426,172 @@
        id="path5790-4"
        d="m 197.17857,186.64789 c -25,0 -25,0 -25,0"
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mstart)" />
+    <g
+       id="g4586"
+       transform="translate(2,2)"
+       style="opacity:0.5;filter:url(#filter6022)">
+      <rect
+         style="fill:none;stroke:#000000"
+         id="rect4588"
+         width="130"
+         height="60"
+         x="40.453678"
+         y="148.0246"
+         ry="14.647212" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         x="70"
+         y="182.36218"
+         id="text4590"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4592"
+           x="70"
+           y="182.36218">DelayNode</tspan></text>
+    </g>
+    <path
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);filter:url(#filter6026)"
+       d="m 172,164.36218 c 25,0 25,0 25,0"
+       id="path4594"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);filter:url(#filter6030)"
+       d="m 107,209.36218 c 0,10 0,5 0,15"
+       id="path4596"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cccc"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);filter:url(#filter6034)"
+       d="m 42,99.362183 c -20,0 -10,0 -10,0 l 0,154.999997 10,0"
+       id="path4598"
+       inkscape:connector-curvature="0" />
+    <rect
+       ry="14.647212"
+       y="69.362183"
+       x="42"
+       height="60"
+       width="130"
+       id="rect4600"
+       style="opacity:0.5;fill:none;stroke:#000000;filter:url(#filter6038)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4602"
+       y="95.30468"
+       x="106.96731"
+       style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter6042);font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+       xml:space="preserve"><tspan
+         style="text-align:center;text-anchor:middle"
+         y="95.30468"
+         x="106.96731"
+         id="tspan4604"
+         sodipodi:role="line">AudioBuffer</tspan><tspan
+         style="text-align:center;text-anchor:middle"
+         id="tspan4606"
+         y="114.05468"
+         x="106.96731"
+         sodipodi:role="line">SourceNode</tspan></text>
+    <g
+       id="g4608"
+       transform="translate(2,2)"
+       style="opacity:0.5;filter:url(#filter6046)">
+      <rect
+         style="fill:none;stroke:#000000"
+         id="rect4610"
+         width="130"
+         height="60"
+         x="196.56088"
+         y="67.671852"
+         ry="14.647212" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         x="261.37326"
+         y="93.727417"
+         id="text4612"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4614"
+           x="261.37326"
+           y="93.727417"
+           style="text-align:center;text-anchor:middle">Oscillator</tspan><tspan
+           sodipodi:role="line"
+           x="261.37326"
+           y="112.47742"
+           id="tspan4616"
+           style="text-align:center;text-anchor:middle">Node</tspan></text>
+    </g>
+    <g
+       id="g4618"
+       transform="translate(2,2)"
+       style="opacity:0.5;filter:url(#filter6050)">
+      <rect
+         style="fill:none;stroke:#000000"
+         id="rect4620"
+         width="130"
+         height="60"
+         x="197.06596"
+         y="147.47136"
+         ry="14.647212" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         x="228.26932"
+         y="182.85635"
+         id="text4622"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4624"
+           x="228.26932"
+           y="182.85635">GainNode</tspan></text>
+    </g>
+    <g
+       transform="translate(2.2518234,1.0139923)"
+       id="g4626"
+       style="opacity:0.5;filter:url(#filter6054)">
+      <rect
+         style="fill:none;stroke:#000000"
+         id="rect4628"
+         width="130"
+         height="60"
+         x="39.893372"
+         y="223.42819"
+         ry="14.647212" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L"
+         x="104.74818"
+         y="249.34819"
+         id="text4630"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4632"
+           x="104.74818"
+           y="249.34819"
+           style="text-align:center;text-anchor:middle">Destination</tspan><tspan
+           sodipodi:role="line"
+           x="104.74818"
+           y="268.09821"
+           id="tspan4634"
+           style="text-align:center;text-anchor:middle">Node</tspan></text>
+    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);filter:url(#filter6058)"
+       d="m 106.44416,132.28729 c 0,10 0,5 0,15"
+       id="path4636"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend);filter:url(#filter6062)"
+       d="m 267.7145,131.98399 c 0,10 0,5 0,15"
+       id="path4638"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mstart);filter:url(#filter6066)"
+       d="m 199.17857,188.64789 c -25,0 -25,0 -25,0"
+       id="path4640"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

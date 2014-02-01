@@ -101,6 +101,47 @@ summary:     Bug 775302 - Stub out the implementation of mozAudioContext; r=bzba
     </section>
   </div></div>
 
+  <div id="use-cases" class="slide"><div>
+    <section>
+      <header>
+        <h2> Use cases </h2>
+      </header>
+      <ul>
+        <li> Games </li>
+        <li> Music visualization </li>
+        <li> Application feedback </li>
+        <li> Musical applications </li>
+        <li> Fancy streaming music player (until we have MediaSource Extension widely
+        available <a
+          href="https://bugzilla.mozilla.org/show_bug.cgi?id=778617">Firefox
+          bug</a>, <a
+          href="https://dvcs.w3.org/hg/html-media/raw-file/tip/media-source/media-source.html">spec)</a></li>
+        <li> (Ideally) Anything that should make noises </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="overview" class="slide"><div>
+    <section>
+      <header>
+        <h2>Feature Overview</h2>
+      </header>
+      <ul>
+        <li> Audio decoding to <code>ArrayBuffers</code> </li>
+        <li><strong>Precise</strong> timing of sound clips </li>
+        <li> Arbitrary audio <strong>routing/mixing</strong> </li>
+        <li> <strong>Effect</strong> transition, scheduling </li>
+        <li> Ability to <strong>analyse</strong> audio </li>
+        <li> Integration with the <strong>web platform</strong> </li>
+        <li> <strong>Low-latency</strong> playback </li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
   <div id="onesentence" class="slide"><div>
     <section>
       <header>
@@ -127,65 +168,49 @@ summary:     Bug 775302 - Stub out the implementation of mozAudioContext; r=bzba
       <header>
         <h2>What is Web Audio, in one picture (and some code)</h2>
       </header>
-      <img src="pictures/webaudio-graph.svg" class="left" alt="Web Audio Graph" style="width: 40%; padding-right: 0;">
-      <pre style="width: 50%; font-size: small; float: right;" class="right">
-          <code> var ac = new AudioContext(); </code>
-          <code> ac.decodeAudioData(ogg_arraybuffer, function(audiobuffer) { </code>
-          <code>   var source = ac.createBufferSource();</code>
-          <code>   source.buffer = audiobuffer; </code>
-          <code>   var d = ac.createDelay()</code>
-          <code>   var osc = ac.createOscillator();</code>
-          <code>   osc.type = "square";</code>
-          <code>   osc.frequency.value = 100; // Hz</code>
-          <code>   var g = ac.createGain();</code>
-          <code>   source.connect(d);</code>
-          <code>   source.connect(ac.destination);</code>
-          <code>   d.connect(ac.destination);</code>
-          <code>   g.connect(d);</code>
-          <code>   d.connect(g);</code>
-          <code>   osc.connect(g);</code>
-          <code>});</code>
+      <img src="pictures/webaudio-graph.svg" class="left" alt="Web Audio Graph"
+      style="width: 40%; padding-right: 0; margin-top: 9%;">
+      <style>
+        .js-var {
+          color: blue;
+        }
+        .js-kw {
+          color: green;
+        }
+        .js-string {
+          color: red;
+        }
+        .js-comment {
+          color: gray;
+        }
+        pre.hack {
+          transform: translate(-10em);
+        }
+      </style>
+      <pre style="width: 40%; font-size: 0.6em; float: right; white-space: pre;
+      font-family: monospace; margin-top: -3em" class="right hack">
+<span class=js-var>var </span>ac = <span class=js-kw>new</span> AudioContext(); 
+ac.decodeAudioData(ogg_arraybuffer, <span class=js-kw>function</span>(audiobuffer) { 
+  <span class=js-var>var </span>source = ac.createBufferSource();
+  source.buffer = audiobuffer; 
+  <span class=js-var>var </span>d = ac.createDelay()
+  <span class=js-var>var </span>osc = ac.createOscillator();
+  osc.type = <span class=js-string>"square"</span>;
+  osc.frequency.value = 100; <span class=js-comment>// Hz</span>
+  <span class=js-var>var </span>g = ac.createGain();
+  source.connect(d);
+  source.connect(ac.destination);
+  d.connect(ac.destination);
+  g.connect(d);
+  d.connect(g);
+  osc.connect(g);
+}, <span class=js-kw>function</span> error() { alert("This is broken"); });
       </pre>
       <footer class="notes">
       </footer>
     </section>
   </div></div>
 
-  <div id="overview" class="slide"><div>
-    <section>
-      <header>
-        <h2>Feature Overview</h2>
-      </header>
-      <ul>
-        <li><em>Precise</em> timing of sound clips </li>
-        <li> Arbitrary audio routing/mixing </li>
-        <li> Effect transition, scheduling </li>
-        <li> Audio decoding to <code>ArrayBuffers</code> </li>
-        <li> Ability to analyse audio </li>
-        <li> Integration with the web platform </li>
-        <li> Low-latency playback </li>
-      </ul>
-      <footer class="notes">
-      </footer>
-    </section>
-  </div></div>
-
-  <div id="use-cases" class="slide"><div>
-    <section>
-      <header>
-        <h2> Use cases </h2>
-      </header>
-      <ul>
-        <li> Games </li>
-        <li> Music visualization </li>
-        <li> Application feedback </li>
-        <li> Musical applications </li>
-        <li> (Ideally) Anything that should make noises </li>
-      </ul>
-      <footer class="notes">
-      </footer>
-    </section>
-  </div></div>
 
   <div id="source-nodes" class="slide"><div>
     <section>
@@ -325,12 +350,16 @@ summary:     Bug 775302 - Stub out the implementation of mozAudioContext; r=bzba
         <h2>Thanks</h2>
       </header>
       <img src="pictures/w3-audio-logo.png" width="30%" class="right" alt="W3C AudioWG Logo">
-      <img src="pictures/firefox-oct-2013.png" width="40%" class="right" alt="Firefox Logo">
+      <img src="pictures/firefox-oct-2013.png" width="30%" class="right" alt="Firefox Logo">
       <ul class="nobull">
         <li><strong>Paul Adenot</strong></li>
         <li>Web Audio API specification editor, Gecko developer</li>
         <li><a href="mailto=padenot@mozilla.com">padenot@mozilla.com</a></li>
         <li><a href="http://twitter.com/padenot">@padenot</a></li>
+        <li><a href="irc://irc.mozilla.org#media">#media on irc.mozilla.org</a> to complain about Gecko</li>
+        <li><a
+          href="https://github.com/WebAudio/web-audio-api/issues">https://github.com/WebAudio/web-audio-api/issues
+          </a> to complain about the spec.</li>
         <li><strong>Slides</strong>: <a
           href="http://padenot.github.io/FOSDEM-14">http://padenot.github.io/FOSDEM-14</a></li>
       </ul>
@@ -340,9 +369,6 @@ summary:     Bug 775302 - Stub out the implementation of mozAudioContext; r=bzba
 
     </section>
   </div></div>
-
-
-
 
   <!--
     To hide progress bar from entire presentation
